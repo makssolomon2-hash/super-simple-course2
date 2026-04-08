@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <button onclick="console.log(Math.floor(Math.random()*100 )+ 1);">GENERATE RANDOM NUMBER FROM 1 TO 100</button>
+    <script>
+
+        //reference shortcut
+        const message = ('how are you?'.toUpperCase());
+        const object1 ={
+            message2: 'hello',
+
+        };
+        const object2 = object1;
+        object1.message2 = 'Hi!'
+        
+        console.log('hello'.length);
+        console.log('hello'.toUpperCase());
+        console.log(message.toLowerCase());
+        console.log(message.length);
+        console.log(object1.message2);
+        console.log(object2);
+
+        const object3 = {
+            message: 'Good job!'
+        }
+        console.log(object3 === object1); //false
+        console.log(object2 === object1); //false
+        console.log(object3.message === object1.message2); //true
+
+        const object4 = {
+            message3: 'Good job!!!',
+            price: 799
+        };
+
+        //const price = object4.price
+
+        //const message3 = object4.message3;
+        const {message2} = object1
+        const { message3, price } = object4;
+        console.log (message3);
+        console.log (price);
+
+        const object5 = {
+            //message: message
+            message, //shorthand property
+            //method: function function1(){
+            //    console.log('method');
+            //}
+            method() {
+                console.log('method2'); //shorthand method
+            }
+
+        };
+        console.log(object5.message);
+        object5.method();
+
+        const product ={
+            name: 'basketball',
+            price: 2095,
+        };
+
+        product['delivery-time']= '3 days';
+
+        product.price = product.price+500; //or
+        product.price = 2596;
+
+        console.log(product);
+        console.log(product.price);
+        console.log(product['delivery-time']);
+
+        function comparePrice(product1, product2){
+            product1 ={
+                name: 'ball',
+                price: 799
+            }
+            product2 = {
+                name: 'dall',
+                price: 999
+            }
+            if(product1.price < product2.price){     
+                console.log(product1);
+            } else if (product1.price > product2.price) {     
+                console.log(product2);
+            }
+        };
+        comparePrice() ; 
+
+
+        //NEXT TIME DO MORE EXERCIES LIKE THIS!!!
+
+        
+    </script>
+</body>
+</html>
