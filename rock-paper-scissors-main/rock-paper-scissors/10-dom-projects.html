@@ -9,9 +9,9 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            background-color: black;
+            background-color: rgb(52, 52, 52);
             color: aliceblue;
-            
+            font-family:Arial, Helvetica, sans-serif ;
         }
         
         .container{
@@ -22,6 +22,27 @@
             
             flex-direction: column;
         }
+
+        .subscribe-button{
+            border: none;
+            background-color: black;
+            color:white;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 100px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        .is-subscribed{
+            background-color: rgb(233, 233, 233);
+            color: black;
+        }
+
+       
     </style>
 </head>
 <body>
@@ -29,7 +50,7 @@
         <p>YouTube Subscribe Button</p>
         <button onclick="
             subscribe();
-        " class="js-subscribe-button">Subscribe</button>
+        " class="js-subscribe-button subscribe-button">Subscribe</button>
 
         <p>Amazon Shipping Calculator</p>
         <input placeholder="Cost of order" class="js-cost-input" onkeydown="
@@ -74,12 +95,14 @@
 
 
         function subscribe(){
-            const buttonElement = document.querySelector('.js-subscribe-button subscribe-buton');
+            const buttonElement = document.querySelector('.js-subscribe-button ');
 
             if(buttonElement.innerText === 'Subscribe'){
                 buttonElement.innerHTML = 'Subscribed';
+                buttonElement.classList.add('is-subscribed');
             } else {
                 buttonElement.innerHTML = 'Subscribe';
+                buttonElement.classList.remove('is-subscribed');
             }
 
         }
