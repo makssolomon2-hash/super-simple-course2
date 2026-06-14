@@ -1,4 +1,4 @@
-i<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,9 +40,45 @@ i<!DOCTYPE html>
         .is-subscribed{
             background-color: rgb(233, 233, 233);
             color: black;
+            
         }
 
+        .like-btn{
+          background-color: rgb(153, 153, 153);
+          color: white;
+          align-items: center;
+          text-align: center;
+          height: 45px;
+          width: 45px;
+          border-radius: 100px;
+          border: 0px;
+          cursor: pointer;
+        }
+
+        .like-btn:hover{
+          background-color: rgb(196, 196, 196);
+          height: 47x;
+          width: 47px;
+        }
+
+        .is-liked{
+          background-color: red;
+        }
+
+        .is-liked:hover{
+          background-color: rgb(255, 158, 158);
+        }
        
+      .message-container{
+
+        text-align: center;
+        padding: 40px;
+        padding-top: 20px;
+        background-color:rgb(57, 57, 57) ;
+        border-radius: 20px;
+        font-weight: 700;
+
+      }
     </style>
 </head>
 <body>
@@ -51,6 +87,7 @@ i<!DOCTYPE html>
         <button onclick="
             subscribe();
         " class="js-subscribe-button subscribe-button">Subscribe</button>
+        <button class="like-btn" onclick="likeButton();">Like</button>
 
         <p>Amazon Shipping Calculator</p>
         <input placeholder="Cost of order" class="js-cost-input" onkeydown="
@@ -58,6 +95,16 @@ i<!DOCTYPE html>
         ">
         <button onclick="calculateTotal()" >Calculate</button>
         <p class="js-total-cost"></p>
+
+
+        
+        <div class="message-container"> 
+          <p>Send a message!</p>
+          <input class="message-input" placeholder="Send a message" onkeydown="handleSendKeydown(event)">
+          <button class="send-btn">send</button>
+          <p class="message-text"></p>
+        </div>
+        
     </div>
     
 
@@ -104,7 +151,34 @@ i<!DOCTYPE html>
                 buttonElement.innerHTML = 'Subscribe';
                 buttonElement.classList.remove('is-subscribed');
             }
+        }
 
+        function likeButton(){
+          const likeElement = document.querySelector('.like-btn');
+
+          if(likeElement.innerText === 'Like'){
+            likeElement.innerHTML = 'Liked';
+            likeElement.classList.add('is-liked');
+          }else{
+            likeElement.innerHTML = 'Like';
+            likeElement.classList.remove('is-liked');
+          }
+        }
+
+        function sendMessage(){
+          const messageInput = document.querySelector('.message-input');
+          let message = (messageInput.value);
+
+          messageInput.value = "";
+          
+          document.querySelector('.message-text')
+          .innerHTML = `${ message }`;     
+        }
+
+         function handleSendKeydown(event){
+            if(event.key === 'Enter'){
+            sendMessage();
+            }; 
         }
     </script>
 </body>
